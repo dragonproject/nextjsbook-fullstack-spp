@@ -1,8 +1,10 @@
+import type { NextApiResponse } from "next"
 import connectDB from "../../../../utils/database"
 import { ItemModel } from "../../../../utils/schemaModels"
 import auth from "../../../../utils/auth"
+import { ExtendedNextApiRequestItem, SavedItemDataType, ResMessageType } from "../../../../utils/types"
 
-const deleteItem = async (req, res) => {
+const deleteItem = async (req: ExtendedNextApiRequestItem, res: NextApiResponse<ResMessageType>) => {
     try {
         await connectDB()
         const singleItem = await ItemModel.findById(req.query.id)

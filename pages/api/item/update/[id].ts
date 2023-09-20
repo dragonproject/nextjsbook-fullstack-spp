@@ -1,12 +1,15 @@
+import type { NextApiRequest, NextApiResponse } from "next"
 import connectDB from "../../../../utils/database"
 import { ItemModel } from "../../../../utils/schemaModels"
 import auth from "../../../../utils/auth"
+import { ExtendedNextApiRequestItem, SavedItemDataType, ResMessageType } from "../../../../utils/types"
 
-const updateItem = async (req, res) => {
+const updateItem = async (req, res: NextApiResponse<ResMessageType>) => {
     // console.log(req) // デバッグ用
     try {
         await connectDB()
-        const singleItem = await ItemModel.findById(req.query.id)
+        const singleItem: SavedItemDataType | null = await ItemModel.findById(req.query.id)
+        if (!singleItem) return res.status(400).json({ massage: "アイテムが存在してないため編集失敗" })
         if (singleItem.email === req.body.email) {
             await ItemModel.updateOne({ _id: req.query.id }, req.body)
             return res.status(200).json({ message: "アイテム編集成功" })

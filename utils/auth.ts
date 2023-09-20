@@ -1,22 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next"
+import type { NextApiResponse } from "next"
 import jwt from "jsonwebtoken"
+import { ExtendedNextApiRequestAuth, DecodedType, ResMessageType } from "./types"
 
-interface DecodedType {
-    email: string
-}
 
-interface ExtendedNextApiRequestAuth extends NextApiRequest {
-    headers: {
-        authorization: string
-    }
-    body: {
-        email: string
-    }
-}
-
-interface ResMessageType {
-    message: string
-}
 const secret_key = "nextmarket"
 
 const auth = (handler: Function) => {
