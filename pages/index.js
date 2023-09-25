@@ -8,15 +8,13 @@ const ReadAllItems = (props) => {
             <Head><title>Next Market</title></Head>
             <div className="grid-container-in">
                 {props.allItems.map(item =>
-                    <Link href={`/item/${item._id}`} key={item._id}>
-                        <a className="card">
-                            <Image src={item.image} width="750" height="500" alt="item-image" />
-                            <div className="texts-area">
-                                <h2>¥{item.price}</h2>
-                                <h3>{item.title}</h3>
-                                <p>{item.description.substring(0, 80)}...</p>
-                            </div>
-                        </a>
+                    <Link className="card" href={`/item/${item._id}`} key={item._id}>
+                        <Image src={item.image} width={750} height={500} alt="item-image" layout="intrinsic" />
+                        <div className="texts-area">
+                            <h2>¥{item.price}</h2>
+                            <h3>{item.title}</h3>
+                            <p>{item.description.substring(0, 80)}...</p>
+                        </div>
                     </Link>
                 )}
             </div>

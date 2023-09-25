@@ -24,7 +24,6 @@ const DeleteItem = (props) => {
     const loginUser = useAuth()
 
     if (loginUser === props.singleItem.email) {
-
         return (
             <div className="delete-page">
                 <Head><title>アイテム削除</title></Head>

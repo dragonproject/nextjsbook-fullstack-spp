@@ -7,7 +7,7 @@ const ReadSingleItem = (props) => {
         <div className="grid-container-si">
             <Head><title>{props.singleItem.title}</title></Head>
             <div>
-                <Image src={props.singleItem.image} width="750" height="500" alt="item-image" />
+                <Image src={props.singleItem.image} width={750} height={500} layout="intrinsic" alt="item-image" />
             </div>
             <div>
                 <h1>{props.singleItem.title}</h1>
@@ -15,8 +15,8 @@ const ReadSingleItem = (props) => {
                 <hr />
                 <p>{props.singleItem.description}</p>
                 <div>
-                    <Link href={`/item/update/${props.singleItem._id}`}>アイテム編集</Link>
-                    <Link href={`/item/delete/${props.singleItem._id}`}>アイテム削除</Link>
+                    <Link legacyBehavior href={`/item/update/${props.singleItem._id}`}><a>アイテム編集</a></Link>
+                    <Link legacyBehavior href={`/item/delete/${props.singleItem._id}`}><a>アイテム削除</a></Link>
                 </div>
             </div>
         </div>
