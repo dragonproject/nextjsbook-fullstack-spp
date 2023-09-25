@@ -1,4 +1,4 @@
-import type { NextApiRequest.NextApiResponse } from "next"
+import type { NextApiRequest, NextApiResponse } from "next"
 import { ItemModel } from "../../../utils/schemaModels"
 import connectDB from "../../../utils/database"
 import { SavedItemDataType, ResReadAllType } from "../../../utils/types"

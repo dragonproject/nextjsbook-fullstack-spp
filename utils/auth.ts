@@ -11,9 +11,9 @@ const auth = (handler: Function) => {
             return handler(req, res)
         }
 
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRyYWdvbnByb2plY3QyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTY5NTIwNjkxNSwiZXhwIjoxNjk1Mjg5NzE1fQ.LxQickqSs6NOXlyEXdjDaDyPCoznwgJCFms83mgORzg"
+        // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRyYWdvbnByb2plY3QyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTY5NTIwNjkxNSwiZXhwIjoxNjk1Mjg5NzE1fQ.LxQickqSs6NOXlyEXdjDaDyPCoznwgJCFms83mgORzg"
 
-        // const token = await req.headers.authorization.split(" ")[1]
+        const token = await req.headers.authorization.split(" ")[1]
 
         if (!token) {
             return res.status(401).json({ message: "トークンがありません" })
