@@ -4,7 +4,7 @@ import { ItemModel } from "../../../../utils/schemaModels"
 import auth from "../../../../utils/auth"
 import { ExtendedNextApiRequestItem, SavedItemDataType, ResMessageType } from "../../../../utils/types"
 
-const updateItem = async (req, res: NextApiResponse<ResMessageType>) => {
+const updateItem = async (req: ExtendedNextApiRequestItem, res: NextApiResponse<ResMessageType>) => {
     // console.log(req) // デバッグ用
     try {
         await connectDB()
