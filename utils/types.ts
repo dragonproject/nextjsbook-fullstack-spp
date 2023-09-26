@@ -21,7 +21,7 @@ export interface DecodedType {
     email: string
 }
 
-export interface ExtendedNextApiRequestAuth extends NextApiRequest { // req無いのでデータ
+export interface ExtendedNextApiRequestAuth extends NextApiRequest { // req無いので注意
     headers: {
         authorization: string
     }
