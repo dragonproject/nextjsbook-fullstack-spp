@@ -1,6 +1,6 @@
 import Head from "next/head"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 
 const ReadAllItems = (props) => {
     return (
@@ -9,7 +9,7 @@ const ReadAllItems = (props) => {
                 <title>Next Market</title>
             </Head>
             <div className="grid-container-in">
-                {props.allItems.map((item) => (
+                {itemData && itemData.allItems.map((item) => (
                     <Link
                         className="card"
                         href={`/item/${item._id}`}
@@ -36,13 +36,13 @@ const ReadAllItems = (props) => {
 
 export default ReadAllItems
 
-export const getServerSideProps = async () => {
-    const response = await fetch(
-        "https://nextjsbook-fullstack-spp.vercel.app/api/item/readall"
-    )
-    const allItems = await response.json()
+// export const getServerSideProps = async () => {
+//     const response = await fetch(
+//         "https://nextjsbook-fullstack-spp.vercel.app/api/item/readall"
+//     )
+//     const allItems = await response.json()
 
-    return {
-        props: allItems
-    }
-}
+//     return {
+//         props: allItems
+//     }
+// }
