@@ -9,7 +9,7 @@ const updateItem = async (req: ExtendedNextApiRequestItem, res: NextApiResponse<
     try {
         await connectDB()
         const singleItem: SavedItemDataType | null = await ItemModel.findById(req.query.id)
-        if (!singleItem) return res.status(400).json({ massage: "アイテムが存在してないため編集失敗" })
+        if (!singleItem) return res.status(400).json({ message: "アイテムが存在してないため編集失敗" })
         if (singleItem.email === req.body.email) {
             await ItemModel.updateOne({ _id: req.query.id }, req.body)
             return res.status(200).json({ message: "アイテム編集成功" })
