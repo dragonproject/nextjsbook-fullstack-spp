@@ -38,7 +38,7 @@ export default ReadAllItems
 
 export const getServerSideProps = async () => {
     const response = await fetch(
-        "https://nextjsbook-fullstack-spp.vercel.app//api/item/readall"
+        "https://nextjsbook-fullstack-spp.vercel.app/api/item/readall"
     )
     const allItems = await response.json()
 

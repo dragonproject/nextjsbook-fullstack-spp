@@ -8,7 +8,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch("https://nextjsbook-fullstack-spp.vercel.app//api/user/login", {
+            const response = await fetch("https://nextjsbook-fullstack-spp.vercel.app/api/user/login", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -22,6 +22,7 @@ const Login = () => {
             const jsonData = await response.json()
             localStorage.setItem("token", jsonData.token)
             alert(jsonData.message)
+
         } catch (err) {
             alert("ログイン失敗")
         }

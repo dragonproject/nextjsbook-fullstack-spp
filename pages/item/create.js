@@ -12,7 +12,7 @@ const CreateItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch("https://nextjsbook-fullstack-spp.vercel.app//api/item/create", {
+            const response = await fetch("https://nextjsbook-fullstack-spp.vercel.app/api/item/create", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -38,7 +38,7 @@ const CreateItem = () => {
     if (loginUser) {
         return (
             <div>
-                <Head><title>アイテム作成</title></Head>
+                <Head><title>アイテム作成だよ</title></Head>
                 <h1 className="page-title">アイテム作成</h1>
                 <ImgInput setImage={setImage} />
                 <form onSubmit={handleSubmit}>

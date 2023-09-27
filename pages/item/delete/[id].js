@@ -6,7 +6,7 @@ const DeleteItem = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`https://nextjsbook-fullstack-spp.vercel.app//api/item/delete/${props.singleItem._id}`, {
+            const response = await fetch(`https://nextjsbook-fullstack-spp.vercel.app/api/item/delete/${props.singleItem._id}`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -45,7 +45,7 @@ const DeleteItem = (props) => {
 export default DeleteItem
 
 export const getServerSideProps = async (context) => {
-    const response = await fetch(`https://nextjsbook-fullstack-spp.vercel.app//api/item/${context.query.id}`)
+    const response = await fetch(`https://nextjsbook-fullstack-spp.vercel.app/api/item/${context.query.id}`)
     const singleItem = await response.json()
 
     return {
